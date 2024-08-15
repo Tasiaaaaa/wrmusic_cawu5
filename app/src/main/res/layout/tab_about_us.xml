@@ -19,7 +19,7 @@
         android:id="@+id/aboutUsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget."
+        android:text="Welcome to WRMusic, your go-to destination for discovering and purchasing the best music albums. We offer a curated collection spanning all genres—from timeless classics to the latest hits. Founded by music lovers, our mission is to bring you closer to the artists you love, offering both digital and physical albums with rich, detailed content.\n\nAt WRMusic, we believe music is more than sound—it's an experience. Explore our catalog, connect with fellow fans, and find your next favorite album today. Thank you for choosing [Your App Name]. Let's keep the music playing!"
         android:justificationMode="inter_word"
         android:textSize="12sp"
         android:fontFamily="@font/montserrat_light"

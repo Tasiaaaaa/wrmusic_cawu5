@@ -33,14 +33,13 @@ public class ItemDetail extends AppCompatActivity {
     private ImageButton floatingButton;
     private ImageButton floatingCart;
 
-    private int quantity = 1;
+    private int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
 
-        // Inisialisasi komponen UI
         detailImage = findViewById(R.id.detail_image);
         detailTitle = findViewById(R.id.detail_title);
         detailArtist = findViewById(R.id.detail_artist);
@@ -55,7 +54,8 @@ public class ItemDetail extends AppCompatActivity {
         floatingButton = findViewById(R.id.floating_button);
         floatingCart = findViewById(R.id.floating_cart);
 
-        // Ambil data dari Intent
+        textQuantity.setText("");
+
         Intent intent = getIntent();
         if (intent != null) {
             String title = intent.getStringExtra("title");
@@ -66,13 +66,11 @@ public class ItemDetail extends AppCompatActivity {
             int imageResId = intent.getIntExtra("imageResId", 0);
             int trackCount = intent.getIntExtra("trackCount", 0);
 
-            // Load image dengan Glide
             Glide.with(this)
                     .load(imageResId)
                     .transform(new CenterCrop(), new RoundedCorners(16))
                     .into(detailImage);
 
-            // Set data ke TextView
             detailTitle.setText(title);
             detailArtist.setText(artist);
             detailGenre.setText(genre);
@@ -81,10 +79,8 @@ public class ItemDetail extends AppCompatActivity {
             detailTrackCount.setText(String.valueOf(trackCount));
         }
 
-        // Update kuantitas awal
         updateQuantity();
 
-        // Tambahkan listener untuk tombol increase
         buttonIncrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +89,6 @@ public class ItemDetail extends AppCompatActivity {
             }
         });
 
-        // Tambahkan listener untuk tombol decrease
         buttonDecrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +99,6 @@ public class ItemDetail extends AppCompatActivity {
             }
         });
 
-        // Tambahkan listener untuk tombol add to cart
         buttonAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,27 +110,21 @@ public class ItemDetail extends AppCompatActivity {
                         @Override
                         public void run() {
                             buttonAddToCart.setText("+ Add to Cart");
-                            //start your activity here
                         }
-
                     }, 3000L);
-                    // Tambahkan item ke keranjang di sini jika diperlukan
                 } else {
                     showCustomDialog();
                 }
             }
         });
 
-
-        // Tambahkan listener untuk tombol kembali
         floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Kembali ke halaman sebelumnya
+                finish();
             }
         });
 
-        // Tambahkan listener untuk tombol cart
         floatingCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,14 +147,13 @@ public class ItemDetail extends AppCompatActivity {
         TextView dialogMessage = dialog.findViewById(R.id.dialogMessage);
         Button btnDialogOk = dialog.findViewById(R.id.btnDialogOk);
 
-        // Set the text programmatically if needed
         dialogTitle.setText("Oops!");
         dialogMessage.setText("Your Quantity is still empty or less than one!");
 
         btnDialogOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss(); // Close the dialog
+                dialog.dismiss();
             }
         });
 
